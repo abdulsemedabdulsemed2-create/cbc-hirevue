@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 18%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 12% 22%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 12% 22%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 225 73% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 26%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 12% 26%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 225 73% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 10% 30%;
+    --input: 220 10% 30%;
+    --ring: 225 73% 57%;
+
+    --radius: 0.5rem;
+
+    --nav: 220 13% 15%;
+    --nav-foreground: 210 20% 85%;
+    --nav-accent: 142 70% 45%;
+
+    --sidebar-background: 220 13% 15%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 225 73% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 12% 22%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 10% 30%;
+    --sidebar-ring: 225 73% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  background: radial-gradient(1000px 600px at 50% -200px, rgba(80, 120, 255, 0.25), transparent 60%),
+              radial-gradient(900px 500px at 20% 10%, rgba(255, 80, 120, 0.12), transparent 55%),
+              linear-gradient(180deg, #05070f, #02030a);
+}
