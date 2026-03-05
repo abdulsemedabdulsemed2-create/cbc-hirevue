@@ -64,3 +64,29 @@ body {
               radial-gradient(900px 500px at 20% 10%, rgba(255, 80, 120, 0.12), transparent 55%),
               linear-gradient(180deg, #05070f, #02030a);
 }
+
+.fog-effect {
+position: absolute;
+top: 0;
+left: -50%;
+height: 100%;
+width: 50%;
+background: rgba(255,255,255,0.08);
+filter: blur(28px);
+animation: fogMove 2.5s linear infinite;
+}
+
+@keyframes fogMove {
+0% {
+transform: translateX(-100%);
+opacity: 0.2;
+}
+50% {
+transform: translateX(100%);
+opacity: 0.5;
+}
+100% {
+transform: translateX(200%);
+opacity: 0.2;
+}
+}

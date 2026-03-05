@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Login = () => {
     const pass = password.trim();
 
     if (login(user, pass)) {
-      navigate("/interview");
+      navigate("/intro");
       return;
     }
 
@@ -139,19 +140,94 @@ const Login = () => {
                 {loading ? "Signing In..." : "Log In"}
               </button>
 
-              <button
-                type="button"
-                onClick={handleJoinNow}
-                className="h-12 rounded-xl border border-white/10 bg-white/5 font-medium text-white transition hover:bg-white/10"
-              >
-                Join Now
-              </button>
+<button
+type="button"
+disabled
+className="relative isolate overflow-hidden rounded-xl px-6 py-3 font-semibold
+cursor-not-allowed opacity-95"
+>
+{/* base dark glass */}
+<span className="absolute inset-0 rounded-xl bg-white/5 border border-white/10" />
+<span className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-700/40 to-blue-600/40" />
+
+{/* TEXT (intentionally unreadable) */}
+<span className="relative z-10 text-white/60 blur-[6px] select-none">
+Join Now
+</span>
+
+{/* heavy fog layers */}
+<span aria-hidden className="pointer-events-none absolute inset-0 z-20">
+<span className="cbc-fogA" />
+<span className="cbc-fogB" />
+<span className="cbc-haze" />
+</span>
+
+{/* optional: tiny “coming soon” hint on hover */}
+<span className="absolute inset-0 z-30 flex items-center justify-center opacity-0 transition-opacity duration-200 hover:opacity-100">
+<span className="text-[11px] tracking-widest uppercase text-white/70">
+Coming soon
+</span>
+</span>
+
+<style>{`
+.cbc-haze{
+position:absolute; inset:0;
+backdrop-filter: blur(10px);
+background: rgba(255,255,255,0.03);
+}
+
+.cbc-fogA, .cbc-fogB{
+position:absolute;
+top:-60%;
+width:120%;
+height:220%;
+border-radius:9999px;
+filter: blur(26px);
+opacity:0.75;
+mix-blend-mode: screen;
+}
+
+.cbc-fogA{
+left:-80%;
+background: radial-gradient(
+closest-side,
+rgba(255,255,255,0.35),
+rgba(180,160,255,0.12),
+rgba(0,0,0,0)
+);
+animation: fogMoveA 2.8s ease-in-out infinite;
+}
+
+.cbc-fogB{
+left:-120%;
+background: radial-gradient(
+closest-side,
+rgba(120,200,255,0.30),
+rgba(255,255,255,0.10),
+rgba(0,0,0,0)
+);
+animation: fogMoveB 3.6s ease-in-out infinite;
+}
+
+@keyframes fogMoveA{
+0% { transform: translateX(0%) rotate(-10deg); }
+50% { transform: translateX(85%) rotate(10deg); }
+100% { transform: translateX(170%) rotate(-10deg); }
+}
+
+@keyframes fogMoveB{
+0% { transform: translateX(10%) rotate(8deg); }
+50% { transform: translateX(95%) rotate(-8deg); }
+100% { transform: translateX(190%) rotate(8deg); }
+}
+`}</style>
+</button>
             </div>
 
-            {/* Hint */}
+            {/* Hint
             <p className="pt-2 text-center text-xs text-slate-500">
               Demo login: <span className="text-slate-300">admin / admin123</span>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
