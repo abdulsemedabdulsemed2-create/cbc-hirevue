@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Clock, Video, Mic, Lightbulb, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Intro = () => {
+    const navigate = useNavigate();
 return (
 <div className="min-h-screen bg-background">
 <Navbar />
@@ -97,8 +99,8 @@ Focus on clarity, structure, and confidence — not perfection.
 
 <div className="mt-6 flex flex-col sm:flex-row gap-3">
 <a href="/interview" className="inline-flex">
-<Button className="rounded-lg">
-Start Practice <ArrowRight className="h-4 w-4" />
+<Button onClick={() => navigate("/interview")}>
+Start Practice
 </Button>
 </a>
 <a href="/admin" className="inline-flex">
